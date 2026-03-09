@@ -13,7 +13,7 @@
 
 # CONFIGURATION - edit these before running
 $GITHUB_USERNAME = "agustinc4000-sys"
-$REPO_NAME       = "ai-lab-docs"
+$REPO_NAME       = "ai-lab-doc"
 $GIT_EMAIL       = "agustinc4000@gmail.com"
 $GIT_NAME        = "Agustin"
 
