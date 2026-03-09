@@ -12,10 +12,10 @@
 #   3. Run: .\setup-lab-docs-repo.ps1
 
 # CONFIGURATION - edit these before running
-$GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"
+$GITHUB_USERNAME = "agustinc4000-sys"
 $REPO_NAME       = "ai-lab-docs"
-$GIT_EMAIL       = "YOUR_EMAIL@example.com"
-$GIT_NAME        = "YOUR_NAME"
+$GIT_EMAIL       = "agustinc4000@gmail.com"
+$GIT_NAME        = "Agustin"
 
 $LOCAL_PATH = $PSScriptRoot
 $REMOTE_URL = "https://github.com/$GITHUB_USERNAME/$REPO_NAME.git"
