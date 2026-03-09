@@ -1,0 +1,36 @@
+#!/bin/bash
+# new-session — create a dated RCD file and open it
+# Usage: new-session [project-name]
+# Example: new-session ai-lab
+#          new-session riif
+#
+# Place this script at: ~/workspace/scripts/new-session
+# Add to PATH in ~/.bashrc:
+#   export PATH="$HOME/workspace/scripts:$PATH"
+
+PROJECT=${1:-session}
+DATE=$(date +%Y%m%d)
+RCD_DIR=~/workspace/knowledge/second-brain/sessions
+TEMPLATE=$RCD_DIR/rcd-template.md
+TARGET=$RCD_DIR/session-rcd-${DATE}-${PROJECT}.md
+
+# Ensure sessions directory exists
+mkdir -p "$RCD_DIR"
+
+if [ ! -f "$TEMPLATE" ]; then
+  echo "ERROR: Template not found at $TEMPLATE"
+  echo "Copy rcd-template.md to $RCD_DIR first"
+  exit 1
+fi
+
+if [ -f "$TARGET" ]; then
+  echo "RCD already exists: $TARGET"
+  echo "Opening existing file..."
+else
+  cp "$TEMPLATE" "$TARGET"
+  sed -i "s/YYYY-MM-DD/$(date +%Y-%m-%d)/g" "$TARGET"
+  sed -i "s/PROJECT_NAME/$PROJECT/g" "$TARGET"
+  echo "Created: $TARGET"
+fi
+
+nano "$TARGET"
